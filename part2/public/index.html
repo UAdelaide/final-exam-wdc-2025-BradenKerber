@@ -55,10 +55,10 @@
           const result = await response.json();
           if (result.success) {
             if(result.role === 'owner') {
-
+              window.location.href = 'walker-dashboard.html';
             }
             else if (result.role === 'walker') {
-                window.location.href = 'walker'
+                window.location.href = 'walker-dashboard.html';
               }
           } else {
             alert('Login failed');

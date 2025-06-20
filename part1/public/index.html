@@ -25,13 +25,12 @@
             methods: {
                 async getDogPicture() {
                     const res = await fetch('https://dog.ceo/api/breeds/image/random');
-                    const data = await res.json;
+                    const data = await res.json();
                     this.dogs = data;
                     console.log(data);
                 }
             },
             mounted() {
-                console.log("mounted");
                 this.getDogPicture();
             }
         }).mount('#app');

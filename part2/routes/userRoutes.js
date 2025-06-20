@@ -45,12 +45,13 @@ router.post('/login', async (req, res) => {
       WHERE email = ? AND password_hash = ?
     `, [email, password]);
     if (rows.length === 0) {
-      console.log("I do not want to be here");
+
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
     res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {
+    console.log("I do not want to be here");
     res.status(500).json({ error: 'Login failed' });
   }
 });

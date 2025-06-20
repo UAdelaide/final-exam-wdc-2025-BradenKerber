@@ -14,7 +14,6 @@ router.get('/dogs', function(req, res) {
             connection.release();
             if (error) {
                 res.sendStatus(500).send("Invalid query.");
-                return;
             }
             res.json(rows);
         });

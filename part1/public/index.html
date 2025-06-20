@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Puppies+Play&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Puppies+Play&display=swap" rel="stylesheet">
+    </head>
 
-<body>
-    <h1 style='font-family: "Puppies Play", cursive; font-weight: 400; font-size: 50px; color: #a5f3a5'>Doggie Walkie Sitie</h1>
-        <button onclick="toSignUp()" type="submit" style="background: red; border-color: red; width: 10px; height: 10px;"></button>
-        <div style="display: inline-block;">
-            <h2>Click this tiny red button if you are interested in becoming a dog walker</h2>
+    <body>
+        <h1 style='font-family: "Puppies Play", cursive; font-weight: 400; font-size: 50px; color: #a5f3a5'>Doggie Walkie Sitie</h1>
+            <button onclick="toSignUp()" type="submit" style="background: red; border-color: red; width: 10px; height: 10px;"></button>
+            <div style="display: inline-block;">
+                <h2>Click this tiny red button if you are interested in becoming a dog walker</h2>
+            </div>
+        <br/>
+        <h2>Dog of the Day</h2>
+        <div id="app">
+            <img v-bind:src="dogs.message" alt="Dog of the day">
+            <h2 style="color: #a5f3a5">{{ dogDetails.dogName }}</h2>
+            <p style="color: #a5f3a5">Size: {{ dogDetails.size }}</p>
+            <p style="color: #a5f3a5">Owner: {{ dogDetails.dogOwner }}</p>
         </div>
-    <br/>
-    <h2>Dog of the Day</h2>
-    <div id="app">
-        <img v-bind:src="dogs.message" alt="Dog of the day">
-        <h2 style="color: #a5f3a5">{{ dogDetails.dogName }}</h2>
-        <p style="color: #a5f3a5">Size: {{ dogDetails.size }}</p>
-        <p style="color: #a5f3a5">Owner: {{ dogDetails.dogOwner }}</p>
-    </div>
 
-    <nav>
-    <ul style="float: right; list-style-type: none; background-color: #f1eeea;">
-      <li class="top-menu-options"><a href="/logout" style="  display: block; padding: 14px 16px; color: #111;">Logout</a></li>
-      <li class="top-menu-options"><a href="messages.html" style="  display: block; padding: 14px 16px; color: #111;">Messages</a></li>
-      <li class="top-menu-options"><a href="account.html" style="  display: block; padding: 14px 16px; color: #111;">Account</a></li>
-    </ul>
-    </nav>
-    <script>
-        const {createApp} = Vue;
+        <nav>
+        <ul style="float: right; list-style-type: none; background-color: #f1eeea;">
+        <li class="top-menu-options"><a href="/logout" style="  display: block; padding: 14px 16px; color: #111;">Logout</a></li>
+        <li class="top-menu-options"><a href="messages.html" style="  display: block; padding: 14px 16px; color: #111;">Messages</a></li>
+        <li class="top-menu-options"><a href="account.html" style="  display: block; padding: 14px 16px; color: #111;">Account</a></li>
+        </ul>
+        </nav>
+        <script>
+            const {createApp} = Vue;
 
-        createApp({
-            data() {
-                return {
-                    dogs: [],
-                    dogDetails: {
-                        dogName: 'Murph',
-                        dogOwner: 'Barry',
-                        size: 'Small'
+            createApp({
+                data() {
+                    return {
+                        dogs: [],
+                        dogDetails: {
+                            dogName: 'Murph',
+                            dogOwner: 'Barry',
+                            size: 'Small'
+                        }
+                    };
+                },
+                methods: {
+                    async getDogPicture() {
+                        const res = await fetch('https://dog.ceo/api/breeds/image/random');
+                        const data = await res.json();
+                        this.dogs = data;
                     }
-                };
-            },
-            methods: {
-                async getDogPicture() {
-                    const res = await fetch('https://dog.ceo/api/breeds/image/random');
-                    const data = await res.json();
-                    this.dogs = data;
+                },
+                mounted() {
+                    this.getDogPicture();
                 }
-            },
-            mounted() {
-                this.getDogPicture();
-            }
-        }).mount('#app');
-    </script>
-</body>
+            }).mount('#app');
+        </script>
+    </body>
 </html>

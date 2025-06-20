@@ -6,7 +6,7 @@ router.get('/dogs', function(req, res) {
     try {
         req.pool.getConnection(function(err, connection) {
             if (err) {
-                res.status(500).send("Could not connect to database.");
+
                 return;
             }
 
@@ -20,6 +20,8 @@ router.get('/dogs', function(req, res) {
                 }
             });
         });
+    } catch (err) {
+        res.status(500).send("Could not connect to database.");
     }
 
 });

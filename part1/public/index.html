@@ -12,6 +12,7 @@
     <div id="app">
         <img v-bind:src="dogs.message" alt="Dog of the day">
     </div>
+    <h2
     <script>
         const {createApp} = Vue;
 
@@ -26,7 +27,6 @@
                     const res = await fetch('https://dog.ceo/api/breeds/image/random');
                     const data = await res.json();
                     this.dogs = data;
-                    console.log(data);
                 }
             },
             mounted() {

@@ -8,7 +8,7 @@ router.get('/api/dogs', function(req, res) {
             return;
         }
 
-        var query = "SELECT name AS dog_name, size, username AS owner_username FROM Dogs I"
+        var query = "SELECT name AS dog_name, size, username AS owner_username FROM Dogs INNER JOIN "
 
 
   res.render('index', { title: 'Express' });

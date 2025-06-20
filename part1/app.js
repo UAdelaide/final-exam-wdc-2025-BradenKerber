@@ -33,6 +33,14 @@ let db;
     });
 
     // Insert data into table
+    await db.execute(`
+        INSERT INTO Users (username, email, password_hash, role) VALUES
+        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+        ('carol123', 'carol@example.com', 'hashed789', 'owner')
+        ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker');
+    `);
+
     const [rows] = await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
@@ -41,15 +49,7 @@ let db;
         ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker');
     `);
 
-        const [rows] = await db.execute(`
-        INSERT INTO Users (username, email, password_hash, role) VALUES
-        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-        ('carol123', 'carol@example.com', 'hashed789', 'owner')
-        ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker');
-    `);
-
-        const [rows] = await db.execute(`
+    const [rows] = await db.execute(`
         INSERT INTO Users (username, email, password_hash, role) VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
         ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),

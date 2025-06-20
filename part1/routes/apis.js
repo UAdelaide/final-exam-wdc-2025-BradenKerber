@@ -8,7 +8,7 @@ router.get('/api/dogs', function(req, res) {
             return;
         }
 
-        var query = "SELECT name FROM Dogs;"
+        var query = "SELECT name AS dog_name FROM Dogs;"
 
 
   res.render('index', { title: 'Express' });

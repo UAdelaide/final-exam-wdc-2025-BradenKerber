@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
+let db;
 
 (async () => {
   try {
@@ -21,7 +21,7 @@ app.use(cookieParser());
       user: 'root',
       password: '' // Set your MySQL root password
     });
-let db;
+
     // Create the database if it doesn't exist
     await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
     await connection.end();

@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/dogs', function(req, res) {
     req.pool.getConnection(function(err, connection) {
         if (err) {
-            res.sendStatus(500).send("Could not connect to database.");
+            res.status(500).send("Could not connect to database.");
             return;
         }
 
@@ -13,9 +13,9 @@ router.get('/dogs', function(req, res) {
         connection.query(query, function(error, rows) {
             connection.release();
             if (error) {
-                res.sendStatus(500).send("Invalid query.");
+                res.status(500).send("Invalid query.");
             }
-            res.status()json(rows);
+            res.status(200).json(rows);
         });
     });
 });

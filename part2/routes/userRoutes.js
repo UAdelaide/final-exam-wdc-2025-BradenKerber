@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
 router.get('/logout', (req, res) => {
   try {
     req.session.destroy();
-    res.status(200).send('');
+    res.status(200).send("logout successful");
   }
   catch (error) {
     res.status(400).send("Error logging out");

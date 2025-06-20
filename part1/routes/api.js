@@ -19,3 +19,5 @@ router.get('/api/dogs', function(req, res) {
         });
     });
 });
+
+module.exports = router;

@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db');
+var database = require('../db');
 
 /* In file api.js routed through /api */
 router.get('/dogs', async (req, res) => {
-    const [rows] = await dbConnectionPool.query("SELECT name AS dog_name, size, username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id");
+    const [rows] = await database.query("SELECT name AS dog_name, size, username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id");
     res.json(rows);
 });
 

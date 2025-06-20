@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* In file api.js routed through /api */
 router.get('/dogs', function(req, res) {
+    try {
     req.pool.getConnection(function(err, connection) {
         if (err) {
             res.sendStatus(500).send("Could not connect to database.");
@@ -18,6 +19,7 @@ router.get('/dogs', function(req, res) {
             res.json(rows);
         });
     });
+    
 });
 
 module.exports = router;

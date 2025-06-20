@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/dogs', function(req, res) {
     req.pool.getConnection(function(err, connection) {
         if (err) {
-            res.sendStatus(500);
+            res.sendStatus(500).send("");
             return;
         }
 

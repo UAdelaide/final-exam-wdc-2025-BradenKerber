@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/dogs', function(req, res) {
     req.pool.getConnection(function(err, connection) {
         if (err) {
-            console.log('Issue');
             res.sendStatus(500);
             return;
         }
@@ -14,7 +13,6 @@ router.get('/dogs', function(req, res) {
         connection.query(query, function(error, rows, fields) {
             connection.release();
             if (error) {
-                console.log('Issue2');
                 res.sendStatus(500);
                 return;
             }

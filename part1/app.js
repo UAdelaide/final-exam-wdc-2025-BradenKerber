@@ -7,15 +7,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 
-var mysql = require('mysql');
-
-var dbConnectionPool = mysql.createPool({
-    host: 'localhost',
-    database: 'DogWalkService'
-});
-
-
-
 var app = express();
 
 app.use(function(req, res, next) {

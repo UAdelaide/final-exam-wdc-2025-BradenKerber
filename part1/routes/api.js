@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* In file api.js routed through /api */
 router.get('/dogs', async function(req, res) {
-    const [rows] = await 
+    const [rows] = await.req.pool
     req.pool.getConnection(function(err, connection) {
         if (err) {
             res.status(500).send("Could not connect to database.");

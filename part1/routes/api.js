@@ -13,16 +13,11 @@ router.get('/dogs', function(req, res) {
         try {
             connection.query(query, function(error, rows) {
                 connection.release();
-                if (error) {
-
-                } else {
-                    res.status(200).json(rows);
-                }
+                res.status(200).json(rows);
             });
         } catch (error) {
-                    res.status(500).send("Invalid query.");
+            res.status(500).send("Invalid query.");
         }
-
     });
 });
 

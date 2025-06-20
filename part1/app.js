@@ -27,53 +27,53 @@ let db;
 
 (async () => {
     try {
-    db = await mysql.createConnection({
-      host: 'localhost',
-      database: 'DogWalkSerivce'
-    });
+        db = await mysql.createConnection({
+        host: 'localhost',
+        database: 'DogWalkSerivce'
+        });
 
-    // Insert data into table
-    var [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-    if (rows[0].count === 0) {
+        // Insert data into table
+        var [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (rows[0].count === 0) {
+            await db.execute(`
+                INSERT INTO Users (username, email, password_hash, role) VALUES
+                ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+                ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+                ('carol123', 'carol@example.com', 'hashed789', 'owner')
+                ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker');
+            `);
+        }
+
+        rows = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+        if (rows[0].count === 0) {
+            await db.execute(`
+                INSERT INTO Dogs (owner_id, name, size) VALUES
+                ('1', 'Max', 'medium'),
+                ('3', 'Bella', 'small');
+            `);
+        }
+
+        rows = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+        if (rows[0].count === 0) {
         await db.execute(`
-            INSERT INTO Users (username, email, password_hash, role) VALUES
-            ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-            ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-            ('carol123', 'carol@example.com', 'hashed789', 'owner')
-            ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker');
+            INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location) VALUES
+            ('1', '2025-06-10 08:00:00', '30', 'Parklands'),
+            ('2', '2025-06-10 09:30:00', '45', 'Beachside Ave');
         `);
-    }
+        }
 
-    rows = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-    if (rows[0].count === 0) {
-        await db.execute(`
-            INSERT INTO Dogs (owner_id, name, size) VALUES
-            ('1', 'Max', 'medium'),
-            ('3', 'Bella', 'small');
-        `);
-    }
+        rows = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
+        if (rows[0].count === 0) {
+            await db.execute(`
+                INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating) VALUES
+                ('1', '2', '1', '5'),
+                ('2', '2', '3', '4');
+            `);
+        }
 
-    rows = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
-    if (rows[0].count === 0) {
-    await db.execute(`
-        INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location) VALUES
-        ('1', '2025-06-10 08:00:00', '30', 'Parklands'),
-        ('2', '2025-06-10 09:30:00', '45', 'Beachside Ave');
-    `);
+    } catch (err) {
+        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
-
-    rows = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
-    if (rows[0].count === 0) {
-        await db.execute(`
-            INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating) VALUES
-            ('1', '2', '1', '5'),
-            ('2', '2', '3', '4');
-        `);
-    }
-
-  } catch (err) {
-    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
-  }
 })();
 
 module.exports = app;

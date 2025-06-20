@@ -40,7 +40,7 @@ let db;
                 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
                 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
                 ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-                ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker');
+                ('magnum', 'magnumpi@example.com', 'hashbrown', 'walker')
             `);
         }
 
@@ -49,7 +49,7 @@ let db;
             await db.execute(`
                 INSERT INTO Dogs (owner_id, name, size) VALUES
                 (1, 'Max', 'medium'),
-                (3, 'Bella', 'small');
+                (3, 'Bella', 'small')
             `);
         }
 
@@ -58,7 +58,7 @@ let db;
         await db.execute(`
             INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location) VALUES
             (1, '2025-06-10 08:00:00', 30, 'Parklands'),
-            (2, '2025-06-10 09:30:00', 45, 'Beachside Ave');
+            (2, '2025-06-10 09:30:00', 45, 'Beachside Ave')
         `);
         }
 
@@ -67,7 +67,7 @@ let db;
             await db.execute(`
                 INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating) VALUES
                 (1, 2, 1, 5),
-                (2, 2, 3, 4);
+                (2, 2, 3, 4)
             `);
         }
 

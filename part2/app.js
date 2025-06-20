@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 
+
 const session = require('express-session');
-const app = express();
 app.use(session({
   secret: 'your-secret-key',
   resave: false,

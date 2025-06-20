@@ -12,10 +12,10 @@ router.get('/api/dogs', function(req, res) {
         connection.query(query, function(error, rows, fields) {
             connection.release();
             if (error) {
-                res.sendStatus(500)
+                res.sendStatus(500);
+                return;
             }
-
-        })
-
-  res.render('index', { title: 'Express' });
+            res.json(rows)
+        });
+    
 });

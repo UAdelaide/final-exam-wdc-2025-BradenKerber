@@ -19,7 +19,9 @@ router.get('/dogs', function(req, res) {
             res.json(rows);
         });
     });
-    
+    } catch (err) {
+        
+    }
 });
 
 module.exports = router;

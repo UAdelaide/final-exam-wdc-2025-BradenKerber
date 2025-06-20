@@ -44,16 +44,16 @@ let db;
         `);
     }
 
-    rows = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    rows = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
-    await db.execute(`
-        INSERT INTO Dogs (owner_id, name, size) VALUES
-        ('1', 'Max', 'medium'),
-        ('3', 'Bella', 'small');
-    `);
+        await db.execute(`
+            INSERT INTO Dogs (owner_id, name, size) VALUES
+            ('1', 'Max', 'medium'),
+            ('3', 'Bella', 'small');
+        `);
     }
 
-    rows = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    rows = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (rows[0].count === 0) {
     await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location) VALUES

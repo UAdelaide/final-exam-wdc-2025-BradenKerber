@@ -54,7 +54,7 @@
 
           const result = await response.json();
           console.log(result);
-          if (result.message === '') {
+          if (result.message === 'Login successful') {
             if(result.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             }

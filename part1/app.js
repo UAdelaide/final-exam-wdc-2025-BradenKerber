@@ -2,10 +2,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var dbConnectionPool = this.require('/db');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var mysql = require('mysql');
+
+var dbConnectionPool = mysql.createPool({
+    host: 'localhost',
+    database: 'DogWalkService'
+});
 
 
 

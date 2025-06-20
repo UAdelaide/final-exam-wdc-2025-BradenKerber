@@ -23,7 +23,7 @@ router.get('/walkrequests/open', async (req, res) => {
     }
 });
 
-
+/* In file api.js routed through /api */
 router.get('/walkers/summary', async (req, res) => {
     try {
         const [rows] = await database.query(`SELECT username AS walker_username, count() AS total_ratings, average() AS average_rating, count() AS completed_walks

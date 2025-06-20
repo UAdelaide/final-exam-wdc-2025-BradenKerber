@@ -14,7 +14,7 @@
     <form @submit.prevent="login">
       <div class="uname">
         <label><b>Username: </b></label>
-        <input v-model="username" type="text" placeholder="Enter Username" required>
+        <input v-model="email" type="text" placeholder="Enter Username" required>
       </div>
       <div class="pword">
         <label><b>Password: </b></label>
@@ -47,7 +47,7 @@
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              username: this.username,
+              username: this.email,
               password: this.password
             })
           });

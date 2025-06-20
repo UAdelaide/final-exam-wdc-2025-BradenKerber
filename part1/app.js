@@ -8,6 +8,11 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use(function(req, res, next) {
+    req.pool = dbConnectionPool;
+    next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -13,7 +13,7 @@ router.get('/dogs', function(req, res) {
         connection.query(query, function(error, rows, fields) {
             connection.release();
             if (error) {
-                res.sendStatus(500).send("Invalid ");
+                res.sendStatus(500).send("Invalid query.");
                 return;
             }
             res.json(rows);

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../db');
 
 /* In file api.js routed through /api */
 router.get('/dogs', async (req, res) => {

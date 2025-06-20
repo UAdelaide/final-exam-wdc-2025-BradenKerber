@@ -37,7 +37,7 @@
         };
       },
       methods: {
-        // Creates a post request to 
+        // Creates a post request to the login api sending the username and password
         async login() {
           const response = await fetch('/api/users/login', {
             method: 'POST',

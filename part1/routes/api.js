@@ -26,7 +26,7 @@ router.get('/walkrequests/open', async (req, res) => {
 
 router.get('/walkers/summary', async (req, res) => {
     try {
-        const [rows] = await database.query(`SELECT username AS walker_username, count(), duration_minutes, location, username AS owner_username
+        const [rows] = await database.query(`SELECT username AS walker_username, count() AS total_ratings, average, location, username AS owner_username
             FROM WalkRequests INNER JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id INNER JOIN Users ON Dogs.owner_id = Users.user_id WHERE status = "Open"`);
         res.json(rows);
     } catch (err) {

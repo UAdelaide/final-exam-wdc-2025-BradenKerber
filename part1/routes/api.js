@@ -13,6 +13,7 @@ router.get('/dogs', function(req, res) {
         connection.query(query, function(error, rows, fields) {
             connection.release();
             if (error) {
+                console.log('Issue2');
                 res.sendStatus(500);
                 return;
             }

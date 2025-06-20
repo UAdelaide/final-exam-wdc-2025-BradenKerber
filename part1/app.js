@@ -26,7 +26,7 @@ var mysql = require('mysql2/promise');
 let db;
 
 (async () => {
-  try {
+    try {
     db = await mysql.createConnection({
       host: 'localhost',
       database: 'DogWalkSerivce'
@@ -62,7 +62,7 @@ let db;
     `);
     }
 
-    rows = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    rows = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
     if (rows[0].count === 0) {
         await db.execute(`
             INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating) VALUES

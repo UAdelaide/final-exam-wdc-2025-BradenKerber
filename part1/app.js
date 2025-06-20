@@ -44,23 +44,25 @@ let db;
         `);
     }
 
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    rows = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
     await db.execute(`
         INSERT INTO Dogs (owner_id, name, size) VALUES
         ('1', 'Max', 'medium'),
         ('3', 'Bella', 'small');
     `);
+    }
 
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    rows = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
     await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location) VALUES
         ('1', '2025-06-10 08:00:00', '30', 'Parklands'),
         ('2', '2025-06-10 09:30:00', '45', 'Beachside Ave');
     `);
+    }
 
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    rows = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
         await db.execute(`
             INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating) VALUES

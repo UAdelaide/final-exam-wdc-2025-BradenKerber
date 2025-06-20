@@ -12,12 +12,10 @@ router.get('/dogs', function(req, res) {
         var query = "SELECT name AS dog_name, size, username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id = User.user_id";
 
         try {connection.query(query, function(error, rows, fields) {
-            connection.release();
-            if (error) {
-
-            }
-            res.json(rows);
-        });} catch {
+                connection.release();
+                res.json(rows);
+            });
+        } catch (error){
             res.sendStatus(500).send("Invalid query.");
             return;
         }

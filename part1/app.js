@@ -29,7 +29,7 @@ let db;
     try {
         db = await mysql.createConnection({
         host: 'localhost',
-        database: 'DogWalkSerivce'
+        database: 'DogWalkService'
         });
 
         // Insert data into table

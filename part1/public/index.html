@@ -8,9 +8,8 @@
 
 <body>
     <h1>Doggie Walkie Sitie</h1>
-        <p>Dog of the Day</p>
+    <p>Dog of the Day</p>
     <div id="app">
-
         <img v-bind:src="dog.message" alt="Dog of the day">
     </div>
     <script>
@@ -27,6 +26,7 @@
                     const res = await fetch('https://dog.ceo/api/breeds/image/random');
                     const data = await res.json;
                     this.dogs = data;
+                    console.log(data);
                 }
             },
             mounted() {

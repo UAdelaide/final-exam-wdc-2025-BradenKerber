@@ -26,7 +26,8 @@ router.get('/walkrequests/open', async (req, res) => {
 
 router.get('/walkers/summary', async (req, res) => {
     try {
-        const [rows] = await database.query(`SELECT Users.username, COUNT(WalkRatings.rating) AS total_ratings, ROUND(AVG(rating), 1) AS average, COUNT(WalkRatings.rating_id) AS completed_walks FROM WalkRatings INNER JOIN Users ON WalkRatings.walker_id = Users.user_id GROUP BY Users.username;`);
+        const [rows] = await database.query(`SELECT Users.username, COUNT(WalkRatings.rating) AS total_ratings, ROUND(AVG(rating), 1) AS average, COUNT(WalkRatings.rating_id) AS completed_walks FROM WalkRatings
+            INNER JOIN Users ON WalkRatings.walker_id = Users.user_id GROUP BY Users.username;`);
         res.json(rows);
     } catch (err) {
         res.status(500).send("Server error.");

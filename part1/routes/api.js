@@ -20,7 +20,7 @@ router.get('/dogs', function(req, res) {
         });
     });
     } catch (err) {
-        
+        res.sendStatus(500).send("Could not connect to database.");
     }
 });
 

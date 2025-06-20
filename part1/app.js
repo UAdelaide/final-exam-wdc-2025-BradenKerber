@@ -33,7 +33,7 @@ let db;
     });
 
     // Insert data into table
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    var [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
         await db.execute(`
             INSERT INTO Users (username, email, password_hash, role) VALUES
@@ -52,7 +52,7 @@ let db;
         ('3', 'Bella', 'small');
     `);
 
-        const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
     await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location) VALUES

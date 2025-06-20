@@ -60,7 +60,8 @@ router.post('/login', async (req, res) => {
 });
 
 // GET route to logout
-router.get('/logout', (req, res) {
+router.get('/logout', (req, res) => {
+  try ()
   req.session.destroy();
   res.sendStatus(200);
 });

@@ -7,14 +7,7 @@ var dbConnectionPool = this.require('/db');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var mysql = require('mysql');
 
-var dbConnectionPool = mysql.createPool({
-    host: 'localhost',
-    database: 'DogWalkService'
-});
-
-module.exports = dbConnectionPool;
 
 var app = express();
 

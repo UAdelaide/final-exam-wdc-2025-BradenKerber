@@ -50,9 +50,10 @@
             })
           });
           // Get response back from api and checks for success
-          
+
           const result = await response.json();
           if (result.message === 'Login successful') {
+            // Check user role to see where the user should be redirected
             if(result.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             }

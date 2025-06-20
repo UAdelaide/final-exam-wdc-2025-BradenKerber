@@ -16,7 +16,7 @@ router.get('/dogs', async (req, res) => {
 router.get('/walkrequests/open', async (req, res) => {
     try {
         const [rows] = await database.query(`SELECT request_id, name AS dog_name, requested_time, duration_minutes, location, username AS owner_username
-            FROM WalkRequests INNER JOIN Dogs ON WalkRequests. = Dogs.dog_id`);
+            FROM WalkRequests INNER JOIN Dogs ON WalkRequests.dog_id = Dogs.dog_id INNER JOIN `);
         res.json(rows);
     } catch (err) {
         res.status(500).send("Server error.");

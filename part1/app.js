@@ -44,7 +44,7 @@ let db;
             `);
         }
 
-        rows = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+        [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
         if (rows[0].count === 0) {
             await db.execute(`
                 INSERT INTO Dogs (owner_id, name, size) VALUES

@@ -5,11 +5,6 @@ var router = express.Router();
 router.get('/dogs', function(req, res) {
     try {
         req.pool.getConnection(function(err, connection) {
-            if (err) {
-
-                return;
-            }
-
             var query = "SELECT name AS dog_name, size, username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id";
             connection.query(query, function(error, rows) {
                 connection.release();

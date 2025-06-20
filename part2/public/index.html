@@ -54,7 +54,7 @@
 
           const result = await response.json();
           if (result.success) {
-            // Redirect
+            if(result.role === '')
           } else {
             alert('Login failed');
           }

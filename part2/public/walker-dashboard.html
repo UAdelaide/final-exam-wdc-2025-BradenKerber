@@ -60,7 +60,7 @@
 
         async function applyToWalk(requestId) {
           try {
-            // Call 
+            // Call me api to get user data then convert into json
             const response = await fetch('/api/users/me');
             const userinfo = await response.json();
 

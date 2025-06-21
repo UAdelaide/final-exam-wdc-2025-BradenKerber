@@ -80,6 +80,7 @@
 
         // Called by logout button
         async function logout() {
+          // Attempt to call the logout route
           try {
             const response = await fetch('/api/users/logout');
             const text = await response.text();

@@ -63,7 +63,7 @@
             // Call me api to get user data then convert into json
             const response = await fetch('/api/users/me');
             const userinfo = await response.json();
-            alert(userInfo.id);
+
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },

@@ -141,7 +141,7 @@
             const response = await fetch('/api/users/ownedDogs');
             const returnedDogs = await response.json();
             console.log(returnedDogs);
-            form.value,ownedDogs = returnedDogs;
+            form.value.ownedDogs = returnedDogs;
           } catch {
             alert("Failed to get dogs");
           }

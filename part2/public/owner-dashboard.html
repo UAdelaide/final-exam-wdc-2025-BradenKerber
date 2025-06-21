@@ -142,6 +142,8 @@
             const returnedDogs = await res.json();
             ownedDogs.value = returnedDogs;
 
+          } catch {
+            alert("Failed to get dogs")
           }
 
         }

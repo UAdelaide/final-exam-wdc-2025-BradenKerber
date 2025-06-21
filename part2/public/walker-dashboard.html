@@ -77,6 +77,21 @@
           }
         }
 
+        async function logout() {
+          try {
+            const response = await fetch('/api/users/logout');
+            const text = await response.text();
+            if (text === "logout successful") {
+              window.location.href = 'index.html';
+            } else {
+              alert(text);
+            }
+          } catch(response) {
+            alert("Logout Failed");
+          }
+        }
+
+
         onMounted(() => {
           loadWalkRequests();
         });
@@ -85,7 +100,8 @@
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          logout
         };
       }
     }).mount('#app');

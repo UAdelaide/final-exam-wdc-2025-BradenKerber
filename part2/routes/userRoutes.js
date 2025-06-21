@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
 
     // After successful login, creates a new session using the user_id and username
     req.session.user = { id: rows[0].user_id,
-      username:rows[0].username,
+      username:rows[0].username
     };
     res.json({ message: 'Login successful', user: rows[0] });
   } catch (error) {

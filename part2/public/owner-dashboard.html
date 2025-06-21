@@ -123,8 +123,9 @@
             const text = await response.text();
             if (text === "logout successful") {
               window.location.href = 'index.html';
+            } else {
+              alert(text);
             }
-            alert(response);
           } catch(response) {
             alert("Logout Failed");
           }

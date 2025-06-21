@@ -77,9 +77,9 @@
           }
         },
 
-        async getOwnedDogs() {
+        async getDogs() {
           try {
-            const response = await fetch('/api/users/ownedDogs');
+            const response = await fetch('/api/users/dogs');
             const returnedDogs = await response.json();
 
             // Assign dogs to owned dogs so they can be added to the form

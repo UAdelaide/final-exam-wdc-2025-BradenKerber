@@ -95,6 +95,7 @@ router.get('/dogs', async (req, res) => {
           FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id`);
           const picResponse = await fetch('https://dog.ceo/api/breeds/image/random');
           const pictures = await picResponse.json();
+          const jsonWithPics = { ...a, ...b };
         res.json(rows);
     } catch (err) {
         res.status(500).send("Server error.");

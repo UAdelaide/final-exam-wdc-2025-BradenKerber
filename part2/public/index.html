@@ -89,13 +89,9 @@
             const response = await fetch('/api/users/dogs');
             const returnedDogs = await response.json();
 
-            // Assign dogs so they can added to table
 
-            dog.forEach(item => {
-                console.log(item.name);
-            });
 
-                        this.dogs = returnedDogs;
+            this.dogs = returnedDogs;
           } catch {
             alert("Failed to get dogs");
           }

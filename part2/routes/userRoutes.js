@@ -79,7 +79,7 @@ router.get('/ownedDogs', async (req, res) => {
 
         // Query the database for dogs owned by the user
         const [rows] = await database.query(`SELECT name AS dog_name FROM Dogs
-          INNER JOIN Users ON Dogs.owner_id = Users.user_id WHERE user_id = ?`, [userid]);
+          INNER JOIN Users ON Dogs.owner_id = Users.user_id WHERE user_id = 1`);
         res.json(rows);
     } catch (err) {
         res.status(500).send("Server error.");

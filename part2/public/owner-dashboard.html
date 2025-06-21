@@ -121,7 +121,7 @@
           try {
             const response = await fetch('/api/users/logout');
             if (response === "logout successful") {
-              
+              window.location.href = 'index.html';
             }
           } catch()
         }

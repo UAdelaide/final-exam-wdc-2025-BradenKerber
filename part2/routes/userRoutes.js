@@ -72,7 +72,7 @@ router.get('/logout', (req, res) => {
     });
 });
 
-// Dogs owned by the user
+// GET dogs owned by the log
 router.get('/ownedDogs', async (req, res) => {
     try {
         const userid = req.session.user.id;

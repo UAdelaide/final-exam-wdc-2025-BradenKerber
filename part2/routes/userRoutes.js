@@ -66,6 +66,7 @@ router.get('/logout', (req, res) => {
     if (err) {
       res.status(400).send("Error logging out");
     }
+    // Clears cookies and sends 
     res.clearCookie('connect.sid');
     res.status(200).send("logout successful");
     });

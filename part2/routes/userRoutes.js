@@ -77,7 +77,7 @@ router.get('/ownedDogs', async (req, res) => {
     try {
         const userid = 1;
         // Query the database for dogs owned by the user
-        const [rows] = await database.query(`SELECT name AS dog_name FROM Dogs WHERE user_id = ?`, userid);
+        const [rows] = await database.query(`SELECT name AS dog_name FROM Dogs WHERE user_id = 1`);
         res.json(rows);
     } catch (err) {
         res.status(500).send("Server error.");

@@ -89,7 +89,9 @@
             const response = await fetch('/api/users/dogs');
             const returnedDogs = await response.json();
 
-            for const
+            for (const dog of dogsData) {
+              
+            }
 
             this.dogs = returnedDogs;
           } catch {

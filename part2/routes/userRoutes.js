@@ -75,7 +75,8 @@ router.get('/logout', (req, res) => {
 router.get('/ownedDogs', async (req, res) => {
     const userid = req.session.user.id;
     try {
-        const [rows] = await database.query("SELECT name AS dog_name FROM Dogs INNER JOIN Users ON Dogs.owner_id = Users.user_id WHERE user_id = ?");
+        const [rows] = await database.query(`SELECT name AS dog_name FROM Dogs
+          INNER JOIN Users ON Dogs.owner_id = Users.user_id WHERE user_id = ?`);
         res.json(rows);
     } catch (err) {
         res.status(500).send("Server error.");

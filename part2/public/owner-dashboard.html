@@ -140,7 +140,7 @@
           try {
             const response = await fetch('/api/users/ownedDogs');
             const returnedDogs = await res.json();
-            ownedDogs.value
+            ownedDogs.value = returnedDogs;
 
           }
 

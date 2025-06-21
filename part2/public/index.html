@@ -85,7 +85,7 @@
           try {
             const response = await fetch('/api/users/dogs');
             const returnedDogs = await response.json();
-
+            console.log(returnedDogs);
             // Assign dogs so they can added to table
             this.dogs = returnedDogs;
           } catch {

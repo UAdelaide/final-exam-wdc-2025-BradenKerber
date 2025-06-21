@@ -45,7 +45,7 @@
           // Stores values from username and password form
           username: '',
           password: '',
-          ownedDogs: []
+          dogs: []
         };
       },
       methods: {
@@ -84,7 +84,7 @@
             const returnedDogs = await response.json();
 
             // Assign dogs to owned dogs so they can be added to the form
-            form.value.ownedDogs = returnedDogs;
+            form.value.dogs = returnedDogs;
           } catch {
             alert("Failed to get dogs");
           }

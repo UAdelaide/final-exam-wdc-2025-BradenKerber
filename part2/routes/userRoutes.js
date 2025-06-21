@@ -82,6 +82,7 @@ router.get('/ownedDogs', async (req, res) => {
           INNER JOIN Users ON Dogs.owner_id = Users.user_id WHERE user_id = 1`);
         res.json(rows);
     } catch (err) {
+          console.error(err);
         res.status(500).send("Server error.");
     }
 });

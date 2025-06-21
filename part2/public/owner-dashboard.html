@@ -139,9 +139,8 @@
         async function getOwnedDogs() {
           try {
             const response = await fetch('/api/users/ownedDogs');
-            const returnedDogs = await res.json();
+            const returnedDogs = await response.json();
             ownedDogs.value = returnedDogs;
-
           } catch {
             alert("Failed to get dogs")
           }

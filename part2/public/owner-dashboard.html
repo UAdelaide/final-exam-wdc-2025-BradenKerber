@@ -27,7 +27,7 @@
             <br>
             <!--Removed previous text box and added a drop down box to display dogs, displays dog names with vue-->
             <select v-model="form.dog_id" id="dogs" required class="form-select">
-              
+              <!-- Inital value is the disabled option choose a dog -->
               <option disabled value="">--Choose a dog--</option>
               <option v-for="dog in form.ownedDogs" :key="dog.dog_id" :value="dog.dog_id">{{ dog.dog_name }}</option>
             </select>

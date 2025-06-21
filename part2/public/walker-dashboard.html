@@ -84,6 +84,7 @@
           try {
             const response = await fetch('/api/users/logout');
             const text = await response.text();
+            // If the logout was successful redirect to home page
             if (text === "logout successful") {
               window.location.href = 'index.html';
             } else {

@@ -61,6 +61,8 @@ router.post('/login', async (req, res) => {
 
 // GET route to logout
 router.get('/logout', (req, res) => {
+  // Get cookie to clear
+  const cookies = req.cookies;
   req.session.destroy((err) => {
     if (err) {
       res.status(400).send("Error logging out");

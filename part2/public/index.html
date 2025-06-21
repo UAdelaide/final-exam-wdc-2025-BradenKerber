@@ -37,13 +37,14 @@
     <!-- Creates a table and populates it with data from dogs in script-->
     <table>
       <tr>
-        <>
+        <!-- Table header-->>
         <th style="padding-left: 20px; padding-right: 20px; padding-top: 20px;"><b>Dog ID</b></th>
         <th style="padding-left: 20px; padding-right: 20px; padding-top: 20px;"><b>Name</b></th>
         <th style="padding-left: 20px; padding-right: 20px; padding-top: 20px;"><b>Size</b></th>
         <th style="padding-left: 20px; padding-right: 20px; padding-top: 20px;"><b>Owner ID</b></th>
         <th style="padding-left: 20px; padding-right: 20px; padding-top: 20px;"><b>Photo</b></th>
       </tr>
+      <!---->
       <tr v-for="dog in dogs" style="background-color: lightgray">
         <th style="padding: 30px">{{ dog.dog_id }}</th>
         <th style="padding: 30px">{{ dog.dog_name }}</th>

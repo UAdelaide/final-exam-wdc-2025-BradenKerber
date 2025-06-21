@@ -88,7 +88,7 @@ router.get('/ownedDogs', async (req, res) => {
 });
 
 
-// GET all dogs
+// GET all dogs from database
 router.get('/dogs', async (req, res) => {
     try {
         const [rows] = await db.query(`SELECT dog_id, name AS dog_name, size, user_id AS owner_id
@@ -98,7 +98,6 @@ router.get('/dogs', async (req, res) => {
         res.status(500).send("Server error.");
     }
 });
-
 
 
 module.exports = router;

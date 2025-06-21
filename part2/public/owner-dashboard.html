@@ -147,7 +147,7 @@
         // Function to retrieve the dogs owned by the user by calling a route
         async function getOwnedDogs() {
           try {
-            // Fe
+            // Fetch from api to retrieve all owned dogs
             const response = await fetch('/api/users/ownedDogs');
             const returnedDogs = await response.json();
 

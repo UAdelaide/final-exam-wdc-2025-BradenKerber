@@ -128,7 +128,7 @@
         // Called by logout button
         async function logout() {
           try {
-            //
+            // 
             const response = await fetch('/api/users/logout');
             const text = await response.text();
             if (text === "logout successful") {

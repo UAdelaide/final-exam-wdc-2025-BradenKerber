@@ -92,7 +92,8 @@
             alert("Failed to get dogs");
           }
         },
-        onMounted(() => {
+
+        mounted() {
           getDogs();
         });
       }

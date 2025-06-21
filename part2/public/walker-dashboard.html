@@ -47,7 +47,6 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = 3;
 
         async function loadWalkRequests() {
           try {
@@ -63,7 +62,8 @@
           try {
 
             const userinfo = await fetch('/api/users/me');
-            
+            // 
+
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },

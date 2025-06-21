@@ -28,18 +28,18 @@
       <tr>
         <th style="padding-left: 20px; padding-right: 20px;"><b>Dog ID</b></th>
         <th style="padding-left: 20px; padding-right: 20px;"><b>Name</b></th>
-          <th style="padding-left: 20px; padding-right: 20px;"><b>Size</b></th>
-          <th style="padding-left: 20px; padding-right: 20px;"><b>Owner ID</b></th>
-          <th style="padding-left: 20px; padding-right: 20px;"><b>Photo</b></th>
-        </tr>
-        <tr v-for="dog in dogs">
-          <th style="padding: 30px">{{ dog.dog_id }}</th>
-          <th style="padding: 30px">{{ dog.dog_name }}</th>
-          <th style="padding: 30px">{{ dog.size }}</th>
-          <th style="padding: 30px">{{ dog.owner_id }}</th>
-          <th style="padding: 30px"><img v-bind:src="dog.pic" alt="{{ dog.dog_name }}" style="width: 150px; height: 150px;"></th>
-        </tr>
-      </table>
+        <th style="padding-left: 20px; padding-right: 20px;"><b>Size</b></th>
+        <th style="padding-left: 20px; padding-right: 20px;"><b>Owner ID</b></th>
+        <th style="padding-left: 20px; padding-right: 20px;"><b>Photo</b></th>
+      </tr>
+      <tr v-for="dog in dogs">
+        <th style="padding: 30px">{{ dog.dog_id }}</th>
+        <th style="padding: 30px">{{ dog.dog_name }}</th>
+        <th style="padding: 30px">{{ dog.size }}</th>
+        <th style="padding: 30px">{{ dog.owner_id }}</th>
+        <th style="padding: 30px"><img v-bind:src="dog.pic" alt="{{ dog.dog_name }}" style="width: 150px; height: 150px;"></th>
+      </tr>
+    </table>
   </div>
 
 

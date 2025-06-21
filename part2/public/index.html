@@ -90,7 +90,7 @@
             const returnedDogs = await response.json();
 
             for (const dog of dogsData) {
-              const res = await fetch();
+              const res = await fetch('https://dog.ceo/api/breeds/image/random');
             }
 
             this.dogs = returnedDogs;

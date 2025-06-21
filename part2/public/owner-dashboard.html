@@ -140,7 +140,7 @@
           try {
             const response = await fetch('/api/users/ownedDogs');
             const returnedDogs = await response.json();
-            formownedDogs.value = returnedDogs;
+            form.value,ownedDogs = returnedDogs;
           } catch {
             alert("Failed to get dogs");
           }
@@ -159,6 +159,7 @@
           error,
           submitWalkRequest,
           logout
+          getOwnedDogs
         };
       }
     }).mount('#app');

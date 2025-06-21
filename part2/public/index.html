@@ -15,10 +15,12 @@
     <form @submit.prevent="login">
       <div class="username">
         <label><b>Username: </b></label>
+        <br>
         <input v-model="username" type="text" placeholder="Enter Username" required>
       </div>
       <div class="pword">
         <label><b>Password: </b></label>
+        <br>
         <input v-model="password" type="password" placeholder="Enter Password" required>
       </div>
       <button type="submit">Login</button>

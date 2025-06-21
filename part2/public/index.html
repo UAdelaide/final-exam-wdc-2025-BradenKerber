@@ -85,8 +85,8 @@
           try {
             const response = await fetch('/api/users/dogs');
             const returnedDogs = await response.json();
-            
-            // Assign dogs to owned dogs so they can be added to the form
+
+            // Assign dogs so they can added to table
             this.dogs = returnedDogs;
           } catch {
             alert("Failed to get dogs");

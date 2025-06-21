@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 
-// Sessions middleware
+// Sessions middleware added to handle express sessions
 const session = require('express-session');
 app.use(session({
   secret: 'super-ultra-secret-key',

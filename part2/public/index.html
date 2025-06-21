@@ -103,6 +103,7 @@
         // Get all dogs and assign a random picture to them
         async getDogs() {
           try {
+            // Contacts the api to retrieve all dogs
             const response = await fetch('/api/users/dogs');
             const returnedDogs = await response.json();
 

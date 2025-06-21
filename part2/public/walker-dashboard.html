@@ -67,7 +67,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              // Send user_id to apply for walk
+              // Send user_id to apply for walk, changed from using hard coded
               body: JSON.stringify({ walker_id: userinfo.id })
             });
             const result = await res.json();

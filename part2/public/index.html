@@ -91,7 +91,6 @@
 
             for (const dog of returnedDogs) {
               const res = await fetch('https://dog.ceo/api/breeds/image/random');
-              if (!res.ok) throw new Error(`Dog pic fetch failed: ${res.status}`);
               const dogPic = await res.json();
               console.log(dogPic);
               dog.pic = dogPic.message;
